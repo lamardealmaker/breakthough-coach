@@ -12,14 +12,14 @@ interface SessionCardProps {
 const SessionCard = ({ title, description, icon, type, onClick }: SessionCardProps) => {
   return (
     <div 
-      className="bg-slate-800/80 rounded-xl p-6 hover:bg-slate-700/90 transition-all duration-300 cursor-pointer 
+      className="bg-slate-800/80 rounded-lg p-4 hover:bg-slate-700/90 transition-all duration-300 cursor-pointer 
                 border border-slate-600/30 hover:border-teal-500/40 hover:shadow-lg hover:shadow-teal-500/5 
-                flex flex-col items-center transform hover:translate-y-[-4px]"
+                flex flex-col items-center transform hover:translate-y-[-4px] h-full"
       onClick={() => onClick(type)}
     >
-      <div className="text-4xl mb-4 bg-slate-900/60 rounded-full p-3 border border-slate-700/30">{icon}</div>
-      <h3 className="text-xl font-bold mb-2 text-teal-300">{title}</h3>
-      <p className="text-slate-300 text-center">{description}</p>
+      <div className="text-3xl mb-3 bg-slate-900/60 rounded-full p-2 border border-slate-700/30">{icon}</div>
+      <h3 className="text-lg font-bold mb-1 text-teal-300">{title}</h3>
+      <p className="text-slate-300 text-center text-sm">{description}</p>
     </div>
   );
 };
@@ -71,6 +71,18 @@ const SessionSelector = () => {
       description: "Recover from setbacks and build mental strength",
       icon: "💪",
       type: "resilience"
+    },
+    {
+      title: "Existential Exploration",
+      description: "Explore profound questions about meaning and existence",
+      icon: "🔮",
+      type: "existential"
+    },
+    {
+      title: "Daily Motivation",
+      description: "Hear inspiring true stories to brighten your day",
+      icon: "📖",
+      type: "motivation"
     }
   ];
 
@@ -85,7 +97,7 @@ const SessionSelector = () => {
         </p>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
         {sessions.map((session) => (
           <SessionCard
             key={session.type}
